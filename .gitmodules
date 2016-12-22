@@ -1,0 +1,6 @@
+[submodule "franklinkim.docker"]
+	path = franklinkim.docker
+	url = https://github.com/weareinteractive/ansible-docker.git
+[submodule "franklinkim.docker-compose"]
+	path = franklinkim.docker-compose
+	url = https://github.com/weareinteractive/ansible-docker-compose.git

@@ -1,0 +1,27 @@
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - franklinkim.docker
+    - franklinkim.docker-compose
+  tasks:
+    - name: Add user to docker-group
+      user: name=ubuntu
+        groups=docker
+        append=yes
+    - name: Pull haproxy-config
+      shell: docker pull factorial/haproxy-config
+
+    - name: Run haproxy-config
+      shell: "docker run \
+          -v /var/run/docker.sock:/var/run/docker.sock \
+          -v /tmp:/tmp \
+          -v /dev/log:/dev/log \
+          -p 80:80 \
+          -p 1936:1936 \
+          --name haproxy \
+          -d \
+          factorial/haproxy-config"
+      # docker integration seems broken with current ansible version
+      # docker_image:
+      #   name: factorial/haproxy-config
