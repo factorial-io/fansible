@@ -12,6 +12,6 @@
 ``` sudo pip install ansible ```
 3. Edit the inventory.ini and add your server IP’s.
 4. Add your ssh key for key authentication on the remote machines and test connection:
-```ansible all --inventory-file=inventory.ini --module-name ping -u rhizom```
+```ansible all --inventory-file=inventory.ini --module-name ping -u YOUR_USER```
 5. Run the playbook.
 ```ansible-playbook playbook.yml -i inventory.ini -u YOUR_USER --ask-sudo-pass```
